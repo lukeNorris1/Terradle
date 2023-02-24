@@ -1,32 +1,43 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-function App() {
+import {
+  loadGameStateFromLocalStorage,
+  saveGameStateToLocalStorage,
+} from './lib/localStorage'
+
+function App(this: any) {
   const [count, setCount] = useState(0)
+  const [storageText, setstorageText] = useState("")
+  
+
+
+  function handleInputText(e: any){
+    e.preventDefault();
+    setstorageText(e.target.value)
+
+  }
+  
+  function buttonHandler(){
+    console.log('clicked')
+    saveGameStateToLocalStorage({ obfSolution: storageText })
+  }
+
+  function loadState(){
+    const loaded = loadGameStateFromLocalStorage()
+    console.log(`Loaded date = ${loaded?.obfSolution}`)
+  }
+
+  
+
+  
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
+      <button onClick={() => buttonHandler()}> Click me </button>
+      <button onClick={() => loadState()}> Click me </button>
     </div>
   )
 }
