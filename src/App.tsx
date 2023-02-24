@@ -6,10 +6,14 @@ import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
 } from './lib/localStorage'
+import CurrentRow from './components/grid/CurrentRow'
+import Keyboard from './components/keyboard/Keyboard'
 
 function App(this: any) {
   const [count, setCount] = useState(0)
   const [storageText, setstorageText] = useState("")
+
+  document.title = "Terradle"
   
 
 
@@ -38,6 +42,8 @@ function App(this: any) {
       <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
       <button onClick={() => buttonHandler()}> Click me </button>
       <button onClick={() => loadState()}> Click me </button>
+      <CurrentRow/>
+      <Keyboard/>
     </div>
   )
 }

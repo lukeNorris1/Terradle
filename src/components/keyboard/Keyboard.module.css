@@ -1,0 +1,70 @@
+.keyboard {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /** Disable highlightable keyboard*/
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 0.125rem;
+    margin: 1.5rem 0;
+}
+
+.row:last-child {
+    margin: 1rem 0;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 58px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    margin: 0 0.125rem;
+    color: white;
+    background-color: #17243e;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+.bigKey {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 58px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 0.125rem;
+    color: white;
+    background-color: #17243e;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+@media (min-width: 640px) {
+    .your-element {
+      bottom: 2rem;
+      background-color: transparent;
+    }
+  }

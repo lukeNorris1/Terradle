@@ -1,0 +1,10 @@
+.classes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 50px;
+    border: none;
+}
