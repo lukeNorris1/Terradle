@@ -10,7 +10,7 @@ import Keyboard from './components/keyboard/Keyboard'
 
 function App() {
   const [storageText, setstorageText] = useState("")
-  const [currentGuess, setCurrentGuess] = useState("s")
+  const [currentGuess, setCurrentGuess] = useState("sword".toUpperCase())
 
 
   function handleInputText(e: any){
@@ -41,11 +41,9 @@ function App() {
 
   return (
     <div className="App">
-      <div>{currentGuess}</div>
-      <button onClick={() => setCurrentGuess(currentGuess + "s")}>Click to add to test state</button>
-      <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
+      {/* <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
       <button onClick={() => buttonHandler()}> Click me </button>
-      <button onClick={() => loadState()}> Click me </button>
+      <button onClick={() => loadState()}> Click me </button> */}
       <CurrentRow
         currentGuess={currentGuess}
       />

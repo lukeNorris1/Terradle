@@ -34,8 +34,9 @@ export default function Keyboard(props: Props) {
                 console.log("enter")
             } else if (e.code === 'Backspace') {
                 console.log("delete") 
-            } else {
+            } else{
                 console.log(e.key)
+                console.log(`Key included in keys ${e.key}`)
                 addGuess(e.key.toUpperCase())
 
                 // TODO: check this test if the range works with non-english letters
@@ -53,16 +54,14 @@ export default function Keyboard(props: Props) {
 
   return (
     <>
-        <div className={styles.middle}></div>
-        <div>Keyboard</div>
         <div className={styles.keyboard}>
-            {keys.map((row) => {
+            {keys.map((row, index) => {
                 return (
-                    <div className={styles.row}>
+                    <div className={styles.row} key={index}>
                         {
-                            row.map((key) => {
-                                return !(key == "Enter" || key == "Del") ? (<div onClick={() => keyClickHandler(key)} className={styles.key}>{key}</div>) 
-                                : <div onClick={() => keyClickHandler(key)} className={styles.bigKey}>{key}</div>
+                            row.map((key, index) => {
+                                return !(key == "Enter" || key == "Del") ? (<div onClick={() => keyClickHandler(key)} className={styles.key} key={index}>{key}</div>) 
+                                : <div onClick={() => keyClickHandler(key)} className={styles.bigKey} key={index}>{key}</div>
                             })
                         }
                     </div>

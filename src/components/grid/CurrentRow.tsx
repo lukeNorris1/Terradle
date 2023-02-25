@@ -11,9 +11,7 @@ export default function CurrentRow(props: any) {
     const emptyCells = Array.from(
       Array(MAX_WORD_LENGTH - splitGuess.length)
     )
-    const classes = `flex justify-center mb-1 ${"className"}`
-
-
+  
   return (
     <>
         <div className={styles.classes}>
