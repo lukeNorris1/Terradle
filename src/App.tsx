@@ -5,12 +5,13 @@ import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
 } from './lib/localStorage'
-import CurrentRow from './components/grid/CurrentRow'
+import CompleteGrid from './components/grid/CompleteGrid/CompleteGrid'
 import Keyboard from './components/keyboard/Keyboard'
 
 function App() {
   const [storageText, setstorageText] = useState("")
   const [currentGuess, setCurrentGuess] = useState("sword".toUpperCase())
+  const [guessList, setGuessList] = useState<string[]>([])
 
 
   function handleInputText(e: any){
@@ -19,10 +20,16 @@ function App() {
 
   }
 
+  const addGuessList = () => {
+    setGuessList([...guessList, currentGuess])
+  }
+
   const addToGuess = (letter: string) => {
-    console.log(`Added letter: ${letter}`)
-    console.log(`Current guess before change = ${currentGuess}`)
     setCurrentGuess(currentGuess + letter)
+  }
+
+  const removeFromGuess = () => {
+    setCurrentGuess(currentGuess.slice(0, -1))
   }
   
   function buttonHandler(){
@@ -44,11 +51,14 @@ function App() {
       {/* <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
       <button onClick={() => buttonHandler()}> Click me </button>
       <button onClick={() => loadState()}> Click me </button> */}
-      <CurrentRow
+      <CompleteGrid
         currentGuess={currentGuess}
+        completeGuesses={guessList}
       />
       <Keyboard
         addGuess={addToGuess}
+        onDelete={removeFromGuess}
+        onEnter={addGuessList}
       />
     </div>
   )

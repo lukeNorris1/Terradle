@@ -1,9 +1,13 @@
 import { useState } from "react"
 import styles  from './CurrentRow.module.css'
 
-import { MAX_WORD_LENGTH } from '../../constants/gameSettings'
+import { MAX_WORD_LENGTH } from '../../../constants/gameSettings'
 
-export default function CurrentRow(props: any) {
+type prop = {
+  currentGuess: string;
+}
+
+export default function CurrentRow(props: prop) {
   const {currentGuess} = props
 
 

@@ -1,73 +1,77 @@
-import React, { useEffect } from 'react'
-import styles from './Keyboard.module.css'
-
+import React, { useEffect } from "react";
+import styles from "./Keyboard.module.css";
+import Error from "../error/Error";
 
 type Props = {
-    addGuess: (value: string) => void
-    onDelete?: () => void
-    onEnter?: () => void
-}
+  addGuess: (value: string) => void;
+  onDelete: () => void;
+  onEnter: () => void;
+};
 
 export default function Keyboard(props: Props) {
-    const { addGuess } = props
-    const keys = [
-        ["Q","W","E","R","T","Y","U","I","O","P"], 
-        ["A","S","D","F","G","H","J","K","L"],
-        ["Enter","Z","X","C","V","B","N","M",'Del']
-    ]
+  const { addGuess, onDelete, onEnter } = props;
+  const keys = [
+    ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+    ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+    ["Enter", "Z", "X", "C", "V", "B", "N", "M", "Del"],
+  ];
 
-    function keyClickHandler(e: string){
-        if (e === 'Enter') {
-            console.log("enter")
-        } else if (e === 'Backspace') {
-            console.log("delete") 
-        } else {
-            console.log(e)
-            addGuess(e.toUpperCase())
-        }
-
+  function keyClickHandler(e: string) {
+    if (e === "Enter") {
+      onEnter();
+    } else if (e === "Del") {
+      onDelete();
+    } else {
+      addGuess(e.toUpperCase());
     }
+  }
 
-    useEffect(() => {
-        const listener = (e: KeyboardEvent) => {
-            if (e.code === 'Enter') {
-                console.log("enter")
-            } else if (e.code === 'Backspace') {
-                console.log("delete") 
-            } else{
-                console.log(e.key)
-                console.log(`Key included in keys ${e.key}`)
-                addGuess(e.key.toUpperCase())
-
-                // TODO: check this test if the range works with non-english letters
-                // if (key.length === 1 && key >= 'A' && key <= 'Z') {
-                //   onChar(key)
-                // }
-            }
-            }
-            window.addEventListener('keyup', listener)
-        return () => {
-            window.removeEventListener('keyup', listener)
-        }
-      }, [addGuess])
-
+  useEffect(() => {
+    const listener = (e: KeyboardEvent) => {
+      if (e.code === "Enter") {
+        console.log("enter");
+      } else if (e.code === "Backspace") {
+        onDelete();
+      } else {
+        addGuess(e.key.toUpperCase());
+      }
+    };
+    window.addEventListener("keyup", listener);
+    return () => {
+      window.removeEventListener("keyup", listener);
+    };
+  }, [addGuess]);
 
   return (
     <>
-        <div className={styles.keyboard}>
-            {keys.map((row, index) => {
-                return (
-                    <div className={styles.row} key={index}>
-                        {
-                            row.map((key, index) => {
-                                return !(key == "Enter" || key == "Del") ? (<div onClick={() => keyClickHandler(key)} className={styles.key} key={index}>{key}</div>) 
-                                : <div onClick={() => keyClickHandler(key)} className={styles.bigKey} key={index}>{key}</div>
-                            })
-                        }
-                    </div>
-                )
-            })}
-        </div>
+      <Error errMsg={"Too many characters"} />
+      <div className={styles.keyboard}>
+        {keys.map((row, index) => {
+          return (
+            <div className={styles.row} key={index}>
+              {row.map((key, index) => {
+                return !(key == "Enter" || key == "Del") ? (
+                  <div
+                    onClick={() => keyClickHandler(key)}
+                    className={styles.key}
+                    key={index}
+                  >
+                    {key}
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => keyClickHandler(key)}
+                    className={styles.bigKey}
+                    key={index}
+                  >
+                    {key}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </>
-  )
+  );
 }
