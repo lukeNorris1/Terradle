@@ -4,7 +4,7 @@
     flex-wrap: wrap;
 }
 
-input {
+.cell {
     width: 50px;
     border: none;
 }

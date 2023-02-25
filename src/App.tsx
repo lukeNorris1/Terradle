@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
 import {
@@ -9,18 +8,21 @@ import {
 import CurrentRow from './components/grid/CurrentRow'
 import Keyboard from './components/keyboard/Keyboard'
 
-function App(this: any) {
-  const [count, setCount] = useState(0)
+function App() {
   const [storageText, setstorageText] = useState("")
-
-  document.title = "Terradle"
-  
+  const [currentGuess, setCurrentGuess] = useState("s")
 
 
   function handleInputText(e: any){
     e.preventDefault();
     setstorageText(e.target.value)
 
+  }
+
+  const addToGuess = (letter: string) => {
+    console.log(`Added letter: ${letter}`)
+    console.log(`Current guess before change = ${currentGuess}`)
+    setCurrentGuess(currentGuess + letter)
   }
   
   function buttonHandler(){
@@ -39,11 +41,17 @@ function App(this: any) {
 
   return (
     <div className="App">
+      <div>{currentGuess}</div>
+      <button onClick={() => setCurrentGuess(currentGuess + "s")}>Click to add to test state</button>
       <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
       <button onClick={() => buttonHandler()}> Click me </button>
       <button onClick={() => loadState()}> Click me </button>
-      <CurrentRow/>
-      <Keyboard/>
+      <CurrentRow
+        currentGuess={currentGuess}
+      />
+      <Keyboard
+        addGuess={addToGuess}
+      />
     </div>
   )
 }

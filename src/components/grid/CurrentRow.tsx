@@ -3,11 +3,11 @@ import styles  from './CurrentRow.module.css'
 
 import { MAX_WORD_LENGTH } from '../../constants/gameSettings'
 
-export default function CurrentRow() {
-    const [guess, setGuess] = useState("swords")
+export default function CurrentRow(props: any) {
+  const {currentGuess} = props
 
 
-    const splitGuess = [...guess]
+    const splitGuess = [...currentGuess]
     const emptyCells = Array.from(
       Array(MAX_WORD_LENGTH - splitGuess.length)
     )
@@ -18,10 +18,10 @@ export default function CurrentRow() {
     <>
         <div className={styles.classes}>
         {splitGuess.map((letter, i) => (
-            <input key={i} value={letter} />
+            <div className={styles.cell} key={i}>{letter}</div>
         ))}
         {emptyCells.map((_, i) => (
-            <input key={i} />
+            <div className={styles.cell} key={i}></div>
         ))}
         </div>
     </>
