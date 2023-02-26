@@ -1,0 +1,1209 @@
+{"weapons": [
+          {
+            "name": "Copper Shortsword"
+          },
+          {
+            "name": "Tin Shortsword"
+          },
+          {
+            "name": "Wooden Sword"
+          },
+          {
+            "name": "Boreal Wood Sword"
+          },
+          {
+            "name": "Copper Broadsword"
+          },
+          {
+            "name": "Iron Shortsword"
+          },
+          {
+            "name": "Palm Wood Sword"
+          },
+          {
+            "name": "Rich Mahogany Sword"
+          },
+          {
+            "name": "Ash Wood Sword"
+          },
+          {
+            "name": "Flymeal"
+          },
+          {
+            "name": "Cactus Sword"
+          },
+          {
+            "name": "Lead Shortsword"
+          },
+          {
+            "name": "Silver Shortsword"
+          },
+          {
+            "name": "Tin Broadsword"
+          },
+          {
+            "name": "Ebonwood Sword"
+          },
+          {
+            "name": "Iron Broadsword"
+          },
+          {
+            "name": "Shadewood Sword"
+          },
+          {
+            "name": "Tungsten Shortsword"
+          },
+          {
+            "name": "Gold Shortsword"
+          },
+          {
+            "name": "Lead Broadsword"
+          },
+          {
+            "name": "Silver Broadsword"
+          },
+          {
+            "name": "Bladed Glove"
+          },
+          {
+            "name": "Tungsten Broadsword"
+          },
+          {
+            "name": "Zombie Arm"
+          },
+          {
+            "name": "Gold Broadsword"
+          },
+          {
+            "name": "Platinum Shortsword"
+          },
+          {
+            "name": "Mandible Blade"
+          },
+          {
+            "name": "Tentacle Spike"
+          },
+          {
+            "name": "Bat Bat"
+          },
+          {
+            "name": "Stylish Scissors"
+          },
+          {
+            "name": "Ruler"
+          },
+          {
+            "name": "Platinum Broadsword"
+          },
+          {
+            "name": "Umbrella"
+          },
+          {
+            "name": "Breathing Reed"
+          },
+          {
+            "name": "Gladius"
+          },
+          {
+            "name": "Bone Sword"
+          },
+          {
+            "name": "Candy Cane Sword"
+          },
+          {
+            "name": "Katana"
+          },
+          {
+            "name": "Ice Blade"
+          },
+          {
+            "name": "Light's Bane"
+          },
+          {
+            "name": "Exotic Scimitar"
+          },
+          {
+            "name": "Blood Butcherer"
+          },
+          {
+            "name": "Starfury"
+          },
+          {
+            "name": "Enchanted Sword"
+          },
+          {
+            "name": "Purple Clubberfish"
+          },
+          {
+            "name": "Falcon Blade"
+          },
+          {
+            "name": "Blade of Grass"
+          },
+          {
+            "name": "Wooden Yoyo"
+          },
+          {
+            "name": "Rally"
+          },
+          {
+            "name": "Malaise"
+          },
+          {
+            "name": "Artery"
+          },
+          {
+            "name": "Amazon"
+          },
+          {
+            "name": "Spear"
+          },
+          {
+            "name": "Trident"
+          },
+          {
+            "name": "Storm Spear"
+          },
+          {
+            "name": "The Rotted Fork"
+          },
+          {
+            "name": "Swordfish"
+          },
+          {
+            "name": "Wooden Boomerang"
+          },
+          {
+            "name": "Enchanted Boomerang"
+          },
+          {
+            "name": "Fruitcake Chakram"
+          },
+          {
+            "name": "Bloody Machete"
+          },
+          {
+            "name": "Shroomerang"
+          },
+          {
+            "name": "Ice Boomerang"
+          },
+          {
+            "name": "Trimerang"
+          },
+          {
+            "name": "Thorn Chakram"
+          },
+          {
+            "name": "Chain Knife"
+          },
+          {
+            "name": "Mace"
+          },
+          {
+            "name": "Flaming Mace"
+          },
+          {
+            "name": "Ball O' Hurt"
+          },
+          {
+            "name": "Terragrim"
+          },
+          {
+            "name": "Paper Airplane"
+          },
+          {
+            "name": "Shuriken"
+          },
+          {
+            "name": "Throwing Knife"
+          },
+          {
+            "name": "Poisoned Knife"
+          },
+          {
+            "name": "Snowball"
+          },
+          {
+            "name": "Spiky Ball"
+          },
+          {
+            "name": "Rotten Egg"
+          },
+          {
+            "name": "Star Anise"
+          },
+          {
+            "name": "Molotov Cocktail"
+          },
+          {
+            "name": "Frost Daggerfish"
+          },
+          {
+            "name": "Javelin"
+          },
+          {
+            "name": "Bone Javelin"
+          },
+          {
+            "name": "Bone Throwing Knife"
+          },
+          {
+            "name": "Grenade (and variants)"
+          },
+          {
+            "name": "Wooden Bow"
+          },
+          {
+            "name": "Boreal Wood Bow"
+          },
+          {
+            "name": "Copper Bow"
+          },
+          {
+            "name": "Palm Wood Bow"
+          },
+          {
+            "name": "Rich Mahogany Bow"
+          },
+          {
+            "name": "Tin Bow"
+          },
+          {
+            "name": "Ebonwood Bow"
+          },
+          {
+            "name": "Ash Wood Bow"
+          },
+          {
+            "name": "Iron Bow"
+          },
+          {
+            "name": "Shadewood Bow"
+          },
+          {
+            "name": "Lead Bow"
+          },
+          {
+            "name": "Silver Bow"
+          },
+          {
+            "name": "Tungsten Bow"
+          },
+          {
+            "name": "Gold Bow"
+          },
+          {
+            "name": "Platinum Bow"
+          },
+          {
+            "name": "Demon Bow"
+          },
+          {
+            "name": "Tendon Bow"
+          },
+          {
+            "name": "Blood Rain Bow"
+          },
+          {
+            "name": "Red Ryder"
+          },
+          {
+            "name": "Flintlock Pistol"
+          },
+          {
+            "name": "Musket"
+          },
+          {
+            "name": "The Undertaker"
+          },
+          {
+            "name": "Sandgun"
+          },
+          {
+            "name": "Revolver"
+          },
+          {
+            "name": "Minishark"
+          },
+          {
+            "name": "Boomstick"
+          },
+          {
+            "name": "Flare Gun"
+          },
+          {
+            "name": "Blowpipe"
+          },
+          {
+            "name": "Snowball Cannon"
+          },
+          {
+            "name": "Paintball Gun"
+          },
+          {
+            "name": "Harpoon"
+          },
+          {
+            "name": "Wand of Sparking"
+          },
+          {
+            "name": "Wand of Frosting"
+          },
+          {
+            "name": "Thunder Zapper"
+          },
+          {
+            "name": "Amethyst Staff"
+          },
+          {
+            "name": "Topaz Staff"
+          },
+          {
+            "name": "Sapphire Staff"
+          },
+          {
+            "name": "Emerald Staff"
+          },
+          {
+            "name": "Ruby Staff"
+          },
+          {
+            "name": "Diamond Staff"
+          },
+          {
+            "name": "Amber Staff"
+          },
+          {
+            "name": "Vilethorn"
+          },
+          {
+            "name": "Crimson Rod"
+          },
+          {
+            "name": "Demon Scythe"
+          },
+          {
+            "name": "Finch Staff"
+          },
+          {
+            "name": "Slime Staff"
+          },
+          {
+            "name": "Abigail's Flower"
+          },
+          {
+            "name": "Flinx Staff"
+          },
+          {
+            "name": "Vampire Frog Staff"
+          },
+          {
+            "name": "Leather Whip"
+          },
+          {
+            "name": "Snapthorn"
+          },
+          {
+            "name": "Gray Zapinator"
+          },
+          {
+            "name": "Code 1"
+          },
+          {
+            "name": "Phaseblade"
+          },
+          {
+            "name": "Volcano"
+          },
+          {
+            "name": "Flamarang"
+          },
+          {
+            "name": "The Meatball"
+          },
+          {
+            "name": "Ale Tosser"
+          },
+          {
+            "name": "Star Cannon"
+          },
+          {
+            "name": "Space Gun"
+          },
+          {
+            "name": "Imp Staff"
+          },
+          {
+            "name": "Lightning Aura Rod"
+          },
+          {
+            "name": "Flameburst Rod"
+          },
+          {
+            "name": "Explosive Trap Rod"
+          },
+          {
+            "name": "Ballista Rod"
+          },
+          {
+            "name": "Pew-matic Horn"
+          },
+          {
+            "name": "Weather Pain"
+          },
+          {
+            "name": "Houndius Shootius"
+          },
+          {
+            "name": "Bee Keeper"
+          },
+          {
+            "name": "Beenade"
+          },
+          {
+            "name": "The Bee's Knees"
+          },
+          {
+            "name": "Blowgun"
+          },
+          {
+            "name": "Bee Gun"
+          },
+          {
+            "name": "Hornet Staff"
+          },
+          {
+            "name": "Hive-Five"
+          },
+          {
+            "name": "Muramasa"
+          },
+          {
+            "name": "Night's Edge"
+          },
+          {
+            "name": "Valor"
+          },
+          {
+            "name": "Cascade"
+          },
+          {
+            "name": "Dark Lance"
+          },
+          {
+            "name": "Combat Wrench"
+          },
+          {
+            "name": "Blue Moon"
+          },
+          {
+            "name": "Sunfury"
+          },
+          {
+            "name": "Bone"
+          },
+          {
+            "name": "Hellwing Bow"
+          },
+          {
+            "name": "Molten Fury"
+          },
+          {
+            "name": "Quad-Barrel Shotgun"
+          },
+          {
+            "name": "Handgun"
+          },
+          {
+            "name": "Phoenix Blaster"
+          },
+          {
+            "name": "Magic Missile"
+          },
+          {
+            "name": "Aqua Scepter"
+          },
+          {
+            "name": "Flamelash"
+          },
+          {
+            "name": "Flower of Fire"
+          },
+          {
+            "name": "Water Bolt"
+          },
+          {
+            "name": "Book of Skulls"
+          },
+          {
+            "name": "Spinal Tap"
+          },
+          {
+            "name": "Pearlwood Sword"
+          },
+          {
+            "name": "Classy Cane"
+          },
+          {
+            "name": "Slap Hand"
+          },
+          {
+            "name": "Cobalt Sword"
+          },
+          {
+            "name": "Palladium Sword"
+          },
+          {
+            "name": "Phasesaber"
+          },
+          {
+            "name": "Ice Sickle"
+          },
+          {
+            "name": "Mythril Sword"
+          },
+          {
+            "name": "Orichalcum Sword"
+          },
+          {
+            "name": "Breaker Blade"
+          },
+          {
+            "name": "Cutlass"
+          },
+          {
+            "name": "Frostbrand"
+          },
+          {
+            "name": "Adamantite Sword"
+          },
+          {
+            "name": "Beam Sword"
+          },
+          {
+            "name": "Titanium Sword"
+          },
+          {
+            "name": "Ham Bat"
+          },
+          {
+            "name": "Fetid Baghnakhs"
+          },
+          {
+            "name": "Bladetongue"
+          },
+          {
+            "name": "Format:C"
+          },
+          {
+            "name": "Gradient"
+          },
+          {
+            "name": "Chik"
+          },
+          {
+            "name": "Hel-Fire"
+          },
+          {
+            "name": "Amarok"
+          },
+          {
+            "name": "Cobalt Naginata"
+          },
+          {
+            "name": "Palladium Pike"
+          },
+          {
+            "name": "Mythril Halberd"
+          },
+          {
+            "name": "Orichalcum Halberd"
+          },
+          {
+            "name": "Adamantite Glaive"
+          },
+          {
+            "name": "Titanium Trident"
+          },
+          {
+            "name": "Obsidian Swordfish"
+          },
+          {
+            "name": "Flying Knife"
+          },
+          {
+            "name": "Sergeant United Shield"
+          },
+          {
+            "name": "Bananarang"
+          },
+          {
+            "name": "Anchor"
+          },
+          {
+            "name": "KO Cannon"
+          },
+          {
+            "name": "Drippler Crippler"
+          },
+          {
+            "name": "Chain Guillotines"
+          },
+          {
+            "name": "Dao of Pow"
+          },
+          {
+            "name": "Jousting Lance"
+          },
+          {
+            "name": "Shadowflame Knife"
+          },
+          {
+            "name": "Pearlwood Bow"
+          },
+          {
+            "name": "Marrow"
+          },
+          {
+            "name": "Ice Bow"
+          },
+          {
+            "name": "Daedalus Stormbow"
+          },
+          {
+            "name": "Shadowflame Bow"
+          },
+          {
+            "name": "Cobalt Repeater"
+          },
+          {
+            "name": "Palladium Repeater"
+          },
+          {
+            "name": "Mythril Repeater"
+          },
+          {
+            "name": "Orichalcum Repeater"
+          },
+          {
+            "name": "Adamantite Repeater"
+          },
+          {
+            "name": "Titanium Repeater"
+          },
+          {
+            "name": "Clockwork Assault Rifle"
+          },
+          {
+            "name": "Gatligator"
+          },
+          {
+            "name": "Shotgun"
+          },
+          {
+            "name": "Onyx Blaster"
+          },
+          {
+            "name": "Coin Gun"
+          },
+          {
+            "name": "Uzi"
+          },
+          {
+            "name": "Toxikarp"
+          },
+          {
+            "name": "Dart Pistol"
+          },
+          {
+            "name": "Dart Rifle"
+          },
+          {
+            "name": "Ice Rod"
+          },
+          {
+            "name": "Flower of Frost"
+          },
+          {
+            "name": "Sky Fracture"
+          },
+          {
+            "name": "Crystal Serpent"
+          },
+          {
+            "name": "Crystal Vile Shard"
+          },
+          {
+            "name": "Life Drain"
+          },
+          {
+            "name": "Clinger Staff"
+          },
+          {
+            "name": "Meteor Staff"
+          },
+          {
+            "name": "Nimbus Rod"
+          },
+          {
+            "name": "Poison Staff"
+          },
+          {
+            "name": "Frost Staff"
+          },
+          {
+            "name": "Laser Rifle"
+          },
+          {
+            "name": "Orange Zapinator"
+          },
+          {
+            "name": "Cursed Flames"
+          },
+          {
+            "name": "Golden Shower"
+          },
+          {
+            "name": "Crystal Storm"
+          },
+          {
+            "name": "Magic Dagger"
+          },
+          {
+            "name": "Medusa Head"
+          },
+          {
+            "name": "Blood Thorn"
+          },
+          {
+            "name": "Spirit Flame"
+          },
+          {
+            "name": "Shadowflame Hex Doll"
+          },
+          {
+            "name": "Spider Staff"
+          },
+          {
+            "name": "Pirate Staff"
+          },
+          {
+            "name": "Sanguine Staff"
+          },
+          {
+            "name": "Queen Spider Staff"
+          },
+          {
+            "name": "Firecracker"
+          },
+          {
+            "name": "Cool Whip"
+          },
+          {
+            "name": "Red's Throw"
+          },
+          {
+            "name": "Valkyrie Yoyo"
+          },
+          {
+            "name": "Arkhalis"
+          },
+          {
+            "name": "Blade Staff"
+          },
+          {
+            "name": "Brand of the Inferno"
+          },
+          {
+            "name": "Excalibur"
+          },
+          {
+            "name": "Code 2"
+          },
+          {
+            "name": "Yelets"
+          },
+          {
+            "name": "Gungnir"
+          },
+          {
+            "name": "Ghastly Glaive"
+          },
+          {
+            "name": "Mushroom Spear"
+          },
+          {
+            "name": "Light Disc"
+          },
+          {
+            "name": "Hallowed Jousting Lance"
+          },
+          {
+            "name": "Sleepy Octopod"
+          },
+          {
+            "name": "Phantom Phoenix"
+          },
+          {
+            "name": "Hallowed Repeater"
+          },
+          {
+            "name": "Megashark"
+          },
+          {
+            "name": "Flamethrower"
+          },
+          {
+            "name": "Super Star Shooter"
+          },
+          {
+            "name": "Unholy Trident"
+          },
+          {
+            "name": "Rainbow Rod"
+          },
+          {
+            "name": "Tome of Infinite Wisdom"
+          },
+          {
+            "name": "Magical Harp"
+          },
+          {
+            "name": "Optic Staff"
+          },
+          {
+            "name": "Lightning Aura Cane"
+          },
+          {
+            "name": "Flameburst Cane"
+          },
+          {
+            "name": "Explosive Trap Cane"
+          },
+          {
+            "name": "Ballista Cane"
+          },
+          {
+            "name": "Durendal"
+          },
+          {
+            "name": "True Excalibur"
+          },
+          {
+            "name": "Chlorophyte Saber"
+          },
+          {
+            "name": "Death Sickle"
+          },
+          {
+            "name": "Chlorophyte Claymore"
+          },
+          {
+            "name": "True Night's Edge"
+          },
+          {
+            "name": "Chlorophyte Partisan"
+          },
+          {
+            "name": "Chlorophyte Shotbow"
+          },
+          {
+            "name": "Pulse Bow"
+          },
+          {
+            "name": "Waffle's Iron"
+          },
+          {
+            "name": "Psycho Knife"
+          },
+          {
+            "name": "Keybrand"
+          },
+          {
+            "name": "Seedler"
+          },
+          {
+            "name": "Terra Blade"
+          },
+          {
+            "name": "Kraken"
+          },
+          {
+            "name": "The Eye of Cthulhu"
+          },
+          {
+            "name": "Paladin's Hammer"
+          },
+          {
+            "name": "Flower Pow"
+          },
+          {
+            "name": "Scourge of the Corruptor"
+          },
+          {
+            "name": "Shadow Jousting Lance"
+          },
+          {
+            "name": "Vampire Knives"
+          },
+          {
+            "name": "Aerial Bane"
+          },
+          {
+            "name": "Stake Launcher"
+          },
+          {
+            "name": "Venus Magnum"
+          },
+          {
+            "name": "Tactical Shotgun"
+          },
+          {
+            "name": "Sniper Rifle"
+          },
+          {
+            "name": "Grenade Launcher"
+          },
+          {
+            "name": "Proximity Mine Launcher"
+          },
+          {
+            "name": "Rocket Launcher"
+          },
+          {
+            "name": "Nail Gun"
+          },
+          {
+            "name": "Piranha Gun"
+          },
+          {
+            "name": "Nettle Burst"
+          },
+          {
+            "name": "Shadowbeam Staff"
+          },
+          {
+            "name": "Inferno Fork"
+          },
+          {
+            "name": "Spectre Staff"
+          },
+          {
+            "name": "Resonance Scepter"
+          },
+          {
+            "name": "Wasp Gun"
+          },
+          {
+            "name": "Leaf Blower"
+          },
+          {
+            "name": "Rainbow Gun"
+          },
+          {
+            "name": "Magnet Sphere"
+          },
+          {
+            "name": "Toxic Flask"
+          },
+          {
+            "name": "Deadly Sphere Staff"
+          },
+          {
+            "name": "Pygmy Staff"
+          },
+          {
+            "name": "Desert Tiger Staff"
+          },
+          {
+            "name": "Staff of the Frost Hydra"
+          },
+          {
+            "name": "Morning Star"
+          },
+          {
+            "name": "Christmas Tree Sword"
+          },
+          {
+            "name": "North Pole"
+          },
+          {
+            "name": "Chain Gun"
+          },
+          {
+            "name": "Snowman Cannon"
+          },
+          {
+            "name": "Elf Melter"
+          },
+          {
+            "name": "Razorpine"
+          },
+          {
+            "name": "Blizzard Staff"
+          },
+          {
+            "name": "The Horseman's Blade"
+          },
+          {
+            "name": "Candy Corn Rifle"
+          },
+          {
+            "name": "Jack 'O Lantern Launcher"
+          },
+          {
+            "name": "Bat Scepter"
+          },
+          {
+            "name": "Raven Staff"
+          },
+          {
+            "name": "Dark Harvest"
+          },
+          {
+            "name": "Flairon"
+          },
+          {
+            "name": "Tsunami"
+          },
+          {
+            "name": "Bubble Gun"
+          },
+          {
+            "name": "Razorblade Typhoon"
+          },
+          {
+            "name": "Tempest Staff"
+          },
+          {
+            "name": "Starlight"
+          },
+          {
+            "name": "Eventide"
+          },
+          {
+            "name": "Stellar Tune"
+          },
+          {
+            "name": "Nightglow"
+          },
+          {
+            "name": "Terraprisma"
+          },
+          {
+            "name": "Kaleidoscope"
+          },
+          {
+            "name": "Flying Dragon"
+          },
+          {
+            "name": "Influx Waver"
+          },
+          {
+            "name": "Possessed Hatchet"
+          },
+          {
+            "name": "Golem Fist"
+          },
+          {
+            "name": "Sky Dragon's Fury"
+          },
+          {
+            "name": "Xenopopper"
+          },
+          {
+            "name": "Stynger"
+          },
+          {
+            "name": "Celebration"
+          },
+          {
+            "name": "Electrosphere Launcher"
+          },
+          {
+            "name": "Staff of Earth"
+          },
+          {
+            "name": "Betsy's Wrath"
+          },
+          {
+            "name": "Heat Ray"
+          },
+          {
+            "name": "Charged Blaster Cannon"
+          },
+          {
+            "name": "Laser Machinegun"
+          },
+          {
+            "name": "Xeno Staff"
+          },
+          {
+            "name": "Lightning Aura Staff"
+          },
+          {
+            "name": "Flameburst Staff"
+          },
+          {
+            "name": "Explosive Trap Staff"
+          },
+          {
+            "name": "Ballista Staff"
+          },
+          {
+            "name": "Daybreak"
+          },
+          {
+            "name": "Solar Eruption"
+          },
+          {
+            "name": "Phantasm"
+          },
+          {
+            "name": "Vortex Beater"
+          },
+          {
+            "name": "Stardust Cell Staff"
+          },
+          {
+            "name": "Stardust Dragon Staff"
+          },
+          {
+            "name": "Nebula Arcanum"
+          },
+          {
+            "name": "Nebula Blaze"
+          },
+          {
+            "name": "Star Wrath"
+          },
+          {
+            "name": "Meowmere"
+          },
+          {
+            "name": "Terrarian"
+          },
+          {
+            "name": "Zenith"
+          },
+          {
+            "name": "S.D.M.G."
+          },
+          {
+            "name": "Celebration Mk2"
+          },
+          {
+            "name": "Lunar Flare"
+          },
+          {
+            "name": "Last Prism"
+          },
+          {
+            "name": "Lunar Portal Staff"
+          },
+          {
+            "name": "Rainbow Crystal Staff"
+          }
+        ]
+}

@@ -1,11 +1,12 @@
 .errMsg {
     background-color: darkred;
     position: fixed;
-    top: 20%;
+    top: 18%;
     left: 40%;
     right: 0;
     width: 20%;
     height: 6%;
+    opacity: 80%;
     display: flex;
     justify-content: center;
     align-items: center;

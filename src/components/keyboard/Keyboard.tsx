@@ -42,7 +42,7 @@ export default function Keyboard(props: Props) {
     return () => {
       window.removeEventListener("keyup", listener);
     };
-  }, [addGuess]);
+  }, [addGuess, onDelete, onEnter]);
 
   return (
     <>
