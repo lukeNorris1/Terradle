@@ -26,13 +26,15 @@ export default function Keyboard(props: Props) {
     }
   }
 
+
+
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
       if (e.code === "Enter") {
         console.log("enter");
-      } else if (e.code === "Backspace") {
+      } else if (e.code === "Backspace" || e.code === "Delete") {
         onDelete();
-      } else {
+      } else if (keys.join().toLocaleLowerCase().includes(e.key)){
         addGuess(e.key.toUpperCase());
       }
     };

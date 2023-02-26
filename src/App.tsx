@@ -5,6 +5,7 @@ import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
 } from './lib/localStorage'
+import { MAX_WORD_LENGTH, MAX_CHALLENGES } from './constants/gameSettings'
 import CompleteGrid from './components/grid/CompleteGrid/CompleteGrid'
 import Keyboard from './components/keyboard/Keyboard'
 
@@ -14,22 +15,23 @@ function App() {
   const [guessList, setGuessList] = useState<string[]>([])
 
 
-  function handleInputText(e: any){
-    e.preventDefault();
-    setstorageText(e.target.value)
-
-  }
 
   const addGuessList = () => {
-    setGuessList([...guessList, currentGuess])
+    if (guessList.length < MAX_CHALLENGES - 1) setGuessList([...guessList, currentGuess])
   }
 
   const addToGuess = (letter: string) => {
-    setCurrentGuess(currentGuess + letter)
+    if (currentGuess.length < MAX_WORD_LENGTH) setCurrentGuess(currentGuess + letter)
   }
 
   const removeFromGuess = () => {
     setCurrentGuess(currentGuess.slice(0, -1))
+  }
+
+  function handleInputText(e: any){
+    e.preventDefault();
+    setstorageText(e.target.value)
+
   }
   
   function buttonHandler(){
