@@ -31,7 +31,7 @@ export default function Keyboard(props: Props) {
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
       if (e.code === "Enter") {
-        console.log("enter");
+        onEnter();
       } else if (e.code === "Backspace" || e.code === "Delete") {
         onDelete();
       } else if (keys.join().toLocaleLowerCase().includes(e.key)){

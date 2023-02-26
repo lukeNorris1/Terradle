@@ -17,10 +17,10 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState("long sword".toUpperCase());
   const [guessList, setGuessList] = useState<string[]>([]);
 
-  console.log(`weapon data: ${weaponData.weapons.map((e) => {console.log(e.name)})}`)
+  //weaponData.weapons.map((e) => {console.log(e.name)})
 
   const addGuessList = () => {
-    if (guessList.length < MAX_CHALLENGES - 1)
+    if (guessList.length < MAX_CHALLENGES)
       setGuessList([...guessList, currentGuess]);
       setCurrentGuess("")
   };
