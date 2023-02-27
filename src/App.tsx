@@ -14,19 +14,27 @@ import Header from "./components/header/Header";
 
 function App() {
   const [storageText, setstorageText] = useState("");
-  const [currentGuess, setCurrentGuess] = useState("long sword".toUpperCase());
+  const [currentGuess, setCurrentGuess] = useState("");
   const [guessList, setGuessList] = useState<string[]>([]);
+  const [chosenWord, setChosenWord] = useState<string>("")
 
-  //weaponData.weapons.map((e) => {console.log(e.name)})
+  useEffect(() => {
+    setChosenWord(weaponData.weapons[Math.floor(Math.random() * weaponData.weapons.length)].name)
+  }, [])
+
+  console.log(`chosen: ${chosenWord}`)
+  
+
 
   const addGuessList = () => {
-    if (guessList.length < MAX_CHALLENGES)
+    if (guessList.length < MAX_CHALLENGES && currentGuess.length === chosenWord.length){
       setGuessList([...guessList, currentGuess]);
       setCurrentGuess("")
+    }
   };
 
   const addToGuess = (letter: string) => {
-    if (currentGuess.length < MAX_WORD_LENGTH)
+    if (currentGuess.length < chosenWord.length)
       setCurrentGuess(currentGuess + letter);
   };
 
@@ -56,7 +64,7 @@ function App() {
         {/* <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
       <button onClick={() => buttonHandler()}> Click me </button>
       <button onClick={() => loadState()}> Click me </button> */}
-        <CompleteGrid currentGuess={currentGuess} completeGuesses={guessList} />
+        <CompleteGrid currentGuess={currentGuess} completeGuesses={guessList} chosenWord={chosenWord} />
         <Keyboard
           addGuess={addToGuess}
           onDelete={removeFromGuess}

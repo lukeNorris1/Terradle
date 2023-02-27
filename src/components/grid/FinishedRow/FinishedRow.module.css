@@ -19,3 +19,13 @@
     color: white;
     margin: 0px 5px;
 }
+
+.green{
+    color: black;
+    background-color: greenyellow;
+}
+
+.yellow {
+    color: black;
+    background-color: yellow;
+}

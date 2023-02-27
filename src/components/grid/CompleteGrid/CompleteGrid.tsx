@@ -5,18 +5,18 @@ import FinishedRow from "../FinishedRow/FinishedRow";
 import { MAX_CHALLENGES } from "../../../constants/gameSettings";
 
 export default function CompleteGrid(props: any) {
-  const { currentGuess, completeGuesses } = props;
+  const { currentGuess, completeGuesses, chosenWord } = props;
 
   const remainingRows = Math.max(MAX_CHALLENGES - completeGuesses.length, 0);
   
   return (
     <>
       {completeGuesses.map((guess: string, key: number) => (
-        <FinishedRow key={key} word={guess} />
+        <FinishedRow key={key} word={guess} chosenWord={chosenWord} />
       ))}
-      {remainingRows > 0 ? <CurrentRow currentGuess={currentGuess} /> : null}
-      {[...Array(Math.max(remainingRows - 1, 0))].map((row) => (
-        <EmptyRow />
+      {remainingRows > 0 ? <CurrentRow currentGuess={currentGuess}  chosenWord={chosenWord} /> : null}
+      {[...Array(Math.max(remainingRows - 1, 0))].map((row, index) => (
+        <EmptyRow key={index}  chosenWord={chosenWord} />
       ))}
     </>
   );

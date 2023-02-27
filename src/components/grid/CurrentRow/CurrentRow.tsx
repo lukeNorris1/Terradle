@@ -5,13 +5,14 @@ import { MAX_WORD_LENGTH } from "../../../constants/gameSettings";
 
 type prop = {
   currentGuess: string;
+  chosenWord: string;
 };
 
 export default function CurrentRow(props: prop) {
-  const { currentGuess } = props;
+  const { currentGuess,  chosenWord } = props;
 
   const splitGuess = [...currentGuess];
-  const emptyCells = Array.from(Array(MAX_WORD_LENGTH - splitGuess.length));
+  const emptyCells = Array.from(Array(chosenWord.length - splitGuess.length));
 
   return (
     <>
