@@ -1,7 +1,7 @@
 import { Buffer } from 'buffer'
 const gameStateKey = 'gameState'
 
-type StoredGameState = {
+export type StoredGameState = {
   obfSolution: string
 }
 
@@ -32,3 +32,11 @@ export const loadGameStateFromLocalStorage = () => {
   return null
 }
 
+export const resetGameStateToLocalStorage = () => {
+  localStorage.setItem(
+    gameStateKey,
+    JSON.stringify({
+      obfSolution: undefined
+    })
+  )
+}

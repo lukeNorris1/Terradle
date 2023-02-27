@@ -17,15 +17,12 @@ export default function CurrentRow(props: prop) {
   return (
     <>
       <div className={styles.classes}>
-        {splitGuess.map((letter, i) => {
-          return (letter == " ") ? (
-            <div className={styles.emptyCell} key={i}></div>
-          ) : (
-            <div className={styles.cell} key={i}>
+        {splitGuess.map((letter, i) => 
+            <div className={styles.current} key={i}>
               {letter}
             </div>
-          );
-        })}
+          
+        )}
 
         {emptyCells.map((_, i) => (
           <div className={styles.cell} key={i}></div>

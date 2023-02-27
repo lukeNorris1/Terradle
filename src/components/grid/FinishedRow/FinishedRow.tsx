@@ -13,12 +13,10 @@ export default function FinishedRow(props: prop) {
 
 
     function guessLetterExactChosen(guess: string, index: number){
-      console.log(`chosen: ${chosenChanged[index]} guess = ${guess}`)
       if (guess == (chosenChanged[index].toUpperCase())) {
-        
         return styles.green
       }
-      else if (chosenChanged.includes(guess)) return styles.yellow
+      else if (chosenChanged.toUpperCase().includes(guess)) return styles.yellow
       return
     }
 

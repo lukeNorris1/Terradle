@@ -8,16 +8,16 @@
 }
 
 .cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    height: 50px;
-    width: 50px;
-    width: 50px;
-    background-color: black;
-    color: white;
-    margin: 0px 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 56px;
+        width: 56px;
+        background-color: #3d9ecf;
+        color: white;
+        border: solid black 3px;
+        margin: 0px 5px;
 }
 
 .green{
