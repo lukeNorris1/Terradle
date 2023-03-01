@@ -18,6 +18,7 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guessList, setGuessList] = useState<string[]>([]);
   const [chosenWord, setChosenWord] = useState<string>("")
+  const [correctGuesses, setCorrectGuesses] = useState<string[][]>()
   const [localGameState, setLocalGameState] = useState<StoredGameState | null>()
   const [startScreen, setStartScreen] = useState(true)
 
@@ -30,25 +31,27 @@ function App() {
   useEffect(() => {
     console.log(chosenWord)
     console.log(`Local Storage: ${localGameState?.obfSolution}`)
+    setCorrectGuesses(Array(3).fill(Array(chosenWord!.length).fill(null)))
   }, [chosenWord])
+
+  useEffect(() => {
+    console.log(`current correct guesses: ${correctGuesses}`)
+  }, [correctGuesses])
+  
   
   
 
   function checkGuess(guess: string){
-    //!TODO This is always fasle - check output
-    return true;
-    weaponData.weapons.map(e => {
-      if (e.name.toUpperCase() == guess) return true
-    })
+    if (weaponData.weapons.filter((e) => e.name.toUpperCase() == guess).length == 1) return true
     return false
   }
 
   const addGuessList = () => {
     if (guessList.length < MAX_CHALLENGES && currentGuess.length === chosenWord.length){
-      if (checkGuess(currentGuess)){
+     // if (checkGuess(currentGuess)){
         setGuessList([...guessList, currentGuess]);
         setCurrentGuess("")
-      }
+     // }
     }
   };
 
@@ -60,6 +63,11 @@ function App() {
   const removeFromGuess = () => {
     setCurrentGuess(currentGuess.slice(0, -1));
   };
+
+  const addtoCorrectGuess = (letter:string) => {
+    console.log(letter)
+
+  }
 
   function handleInputText(e: any) {
     e.preventDefault();
@@ -84,11 +92,12 @@ function App() {
         {/* <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
       <button onClick={() => buttonHandler()}> Click me </button>
       <button onClick={() => loadState()}> Click me </button> */}
-        <CompleteGrid currentGuess={currentGuess} completeGuesses={guessList} chosenWord={chosenWord} />
+        <CompleteGrid currentGuess={currentGuess} completeGuesses={guessList} chosenWord={chosenWord} correctGuess={correctGuesses} addtoCorrectGuess={addtoCorrectGuess} />
         <Keyboard
           addGuess={addToGuess}
           onDelete={removeFromGuess}
           onEnter={addGuessList}
+          correctGuesses={correctGuesses}
         />
       </div>
     </div>

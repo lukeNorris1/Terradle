@@ -6,10 +6,11 @@ type Props = {
   addGuess: (value: string) => void;
   onDelete: () => void;
   onEnter: () => void;
+  correctGuesses: string[][] | undefined;
 };
 
 export default function Keyboard(props: Props) {
-  const { addGuess, onDelete, onEnter } = props;
+  const { addGuess, onDelete, onEnter, correctGuesses } = props;
   const keys = [
     ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
     ["A", "S", "D", "F", "G", "H", "J", "K", "L"],

@@ -15,7 +15,7 @@ export default function StartInfo(props: any) {
         LoredaUhbdauewjdnwqdqwdqwdqwdw wijdfweifjwfijewfiwejfwfiewjfi
         weifjwifjewfiewjfwiefjie
       </p>
-      <FinishedRow chosenWord={"SandS"} word={"SWORD"} />
+      <FinishedRow chosenWord={"SandS"} word={"SWORD"} correctGuess={[]} />
       <p>Green = "Test"</p>
       <p>Yellow = "wow"</p>
       <button onClick={toggleScreen}>Finish</button>
