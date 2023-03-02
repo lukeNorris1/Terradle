@@ -6,25 +6,18 @@ export default function Error(props: any) {
     const [showError, setShowError] = useState(false)
     const classes = showError ? styles.errMsg : styles.hide
 
-    function toggleError(){
-        setShowError(!showError)
-    }
-
     useEffect(() => {
       if (errMsg !== "") {
         setShowError(true)
         setTimeout(() => {
           setShowError(false)
-        }, 4000)
+        }, 2000)
       }
     }, [errMsg])
-    
-
     
   return (
     <>
         {<div className={classes} >{errMsg}</div>}
-        <button  onClick={toggleError}>Click To show error</button>
     </>
   )
 }
