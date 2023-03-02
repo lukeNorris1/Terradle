@@ -23,6 +23,7 @@ function App() {
     useState<StoredGameState | null>();
   const [startScreen, setStartScreen] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
+  const [gameWon, setGameWon] = useState(false)
 
   useEffect(() => {
     resetGameStateToLocalStorage();
@@ -39,6 +40,11 @@ function App() {
     console.log(chosenWord);
     console.log(`Local Storage: ${localGameState?.obfSolution}`);
   }, [chosenWord]);
+
+  useEffect(() => {
+    if (guessList.includes(chosenWord?.toUpperCase())) setGameWon(true)
+  }, [guessList])
+  
 
   function checkGuess(guess: string) {
     if (
@@ -58,13 +64,14 @@ function App() {
       setGuessList([...guessList, currentGuess]);
       setCurrentGuess("");
       // }
-    } else {
+    } else if (!gameWon) {
       setErrorMsg("Not enough letters");
     }
   };
 
   const addToGuess = (letter: string) => {
-    if (currentGuess.length < chosenWord.length)
+    //! Add win condition check
+    if (currentGuess.length < chosenWord.length && !gameWon)
       setCurrentGuess(currentGuess + letter);
   };
 
