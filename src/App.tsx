@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-
 import weaponData from './assets/terrariaWeapons.json';
-
 import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,resetGameStateToLocalStorage, StoredGameState,
@@ -12,6 +9,7 @@ import CompleteGrid from "./components/grid/CompleteGrid/CompleteGrid";
 import Keyboard from "./components/keyboard/Keyboard";
 import Header from "./components/header/Header";
 import StartInfo from "./components/startInfo/StartInfo";
+import "./App.css";
 
 function App() {
   const [storageText, setstorageText] = useState("");
@@ -46,6 +44,8 @@ function App() {
         setGuessList([...guessList, currentGuess]);
         setCurrentGuess("")
      // }
+    } else {
+      setErrorMsg("Not enough letters")
     }
   };
 

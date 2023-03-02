@@ -6,7 +6,6 @@
     right: 0;
     width: 20%;
     height: 6%;
-    opacity: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,4 +14,27 @@
     font-size: 1.3rem;
     line-height: 1rem;
     border-radius: 3%;
+    transition: opacity 0.5s;
+    opacity: 0.8;
+}
+
+.hide {
+    background-color: darkred;
+    position: fixed;
+    top: 18%;
+    left: 40%;
+    right: 0;
+    width: 20%;
+    height: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 800;
+    font-size: 1.3rem;
+    line-height: 1rem;
+    border-radius: 3%;
+    transition: opacity 0.5s;
+    opacity: 0;
+    pointer-events:none;
 }
