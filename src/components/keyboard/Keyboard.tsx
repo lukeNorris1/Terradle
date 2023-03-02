@@ -6,11 +6,12 @@ type Props = {
   addGuess: (value: string) => void;
   onDelete: () => void;
   onEnter: () => void;
-  correctGuesses: string[][] | undefined;
+  correctGuesses: string[];
+  errorMsg: string;
 };
 
 export default function Keyboard(props: Props) {
-  const { addGuess, onDelete, onEnter, correctGuesses } = props;
+  const { addGuess, onDelete, onEnter, correctGuesses, errorMsg } = props;
   const keys = [
     ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
     ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
@@ -26,8 +27,6 @@ export default function Keyboard(props: Props) {
       addGuess(e.toUpperCase());
     }
   }
-
-
 
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
@@ -45,9 +44,16 @@ export default function Keyboard(props: Props) {
     };
   }, [addGuess, onDelete, onEnter]);
 
+  function colorCheck(key: string){
+    if (correctGuesses[0].includes(key)) return "#4ab336"
+    else if (correctGuesses[1].includes(key)) return "#f2a246"
+    else if (correctGuesses[2].includes(key)) return "gray"
+    return ""
+  }
+
   return (
     <>
-      <Error errMsg={"Too many characters"} />
+      <Error errMsg={errorMsg} />
       <div className={styles.keyboard}>
         {keys.map((row, index) => {
           return (
@@ -56,7 +62,8 @@ export default function Keyboard(props: Props) {
                 return !(key == "Enter" || key == "Del") ? (
                   <div
                     onClick={() => keyClickHandler(key)}
-                    className={styles.key}
+                    className={`${styles.key} ${"2"}`} // if key is in first array index = green, if second array = yellow, if third = grayed out
+                    style={{backgroundColor: colorCheck(key)}}
                     key={index}
                   >
                     {key}

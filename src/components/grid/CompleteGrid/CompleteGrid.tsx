@@ -8,8 +8,8 @@ type prop = {
   currentGuess: string;
   completeGuesses: string[];
   chosenWord: string;
-  correctGuess: string[][];
-  addtoCorrectGuess: (value: string) => void;
+  correctGuess: string[];
+  addtoCorrectGuess: (value: string, index: number) => void;
 }
 
 export default function CompleteGrid(props: any) {
