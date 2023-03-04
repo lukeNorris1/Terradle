@@ -47,7 +47,6 @@ export default function Keyboard(props: Props) {
   }, [addGuess, onDelete, onEnter]);
 
   const colorCheck = (key: string) => {
-    console.log(`correct guesses: ${correctGuesses}`)
     if (correctGuesses[0].includes(key)) return "#4ab336" //green
     else if (correctGuesses[1].includes(key)) return "#f2a246" //orange
     else if (correctGuesses[2].includes(key)) return "gray"

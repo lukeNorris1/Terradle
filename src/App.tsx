@@ -1,46 +1,39 @@
 import { useEffect, useState } from "react";
+import "./App.css";
 import weaponData from "./assets/terrariaWeapons.json";
 import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
   resetGameStateToLocalStorage,
-  saveStatsToLocalStorage,
-  loadStatsFromLocalStorage,
-  StoredGameState,
-  GameStats,
 } from "./lib/localStorage";
 import { loadStats, addStatsForCompletedGame } from "./lib/stats";
-import { MAX_WORD_LENGTH, MAX_CHALLENGES } from "./constants/gameSettings";
+import { MAX_CHALLENGES } from "./constants/gameSettings";
 import CompleteGrid from "./components/grid/CompleteGrid/CompleteGrid";
 import Keyboard from "./components/keyboard/Keyboard";
 import Header from "./components/header/Header";
 import StartInfo from "./components/startInfo/StartInfo";
-import "./App.css";
 import GameEnd from "./components/gameEnd/GameEnd";
+import { findWeapon } from './lib/findWeapon'
+import Switch from "./components/switch/Switch";
 
 function App() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [chosenWord, setChosenWord] = useState<string>("");
   const [correctGuesses, setCorrectGuesses] = useState<string[]>(["", "", ""]);
   const [errorMsg, setErrorMsg] = useState("");
+  const [difficultySetting, setDifficultySetting] = useState(false)
   const [gameWon, setGameWon] = useState(false)
   const [gameLost, setGameLost] = useState(false)
   const [endModalOpen, setEndModalOpen] = useState(false)
   const [stats, setStats] = useState(() => loadStats())
   const [guessList, setGuessList] = useState<string[]>(() => {
     const loaded = loadGameStateFromLocalStorage()
-    setChosenWord(loaded?.gameSolution ? loaded?.gameSolution : chooseSolution())
+    setChosenWord(loaded?.gameSolution ? loaded?.gameSolution : findWeapon())
     return loaded?.currentGuesses || []
   });
   const [startScreen, setStartScreen] = useState((guessList.length == 0 ? true: false));
 
-  function chooseSolution(){
-    const tempChosen = Object.values(weaponData.weapons).filter(
-      (e) => e.name.length <= MAX_WORD_LENGTH
-    );
-    return tempChosen[Math.floor(Math.random() * tempChosen.length)].name
-  }
-
+//! ALL GOOD !
   useEffect(() => {
     saveGameStateToLocalStorage({currentGuesses: guessList, gameSolution: chosenWord})
     if (guessList.includes(chosenWord?.toUpperCase())) setGameWon(true)
@@ -59,8 +52,7 @@ function App() {
 
   function checkGuess(guess: string) {
     if (
-      weaponData.weapons.filter((e) => e.name.toUpperCase() == guess).length ==
-      1
+      weaponData.weapons.filter((e) => e.name.toUpperCase() == guess).length == 1
     )
       return true;
     return false;
@@ -71,10 +63,17 @@ function App() {
       guessList.length < MAX_CHALLENGES &&
       currentGuess.length === chosenWord.length
     ) {
-      // if (checkGuess(currentGuess)){
-      setGuessList([...guessList, currentGuess]);
-      setCurrentGuess("");
-      // }
+       if (difficultySetting) {
+        if (checkGuess(currentGuess)) {
+          setGuessList([...guessList, currentGuess]);
+          setCurrentGuess("");
+        } else {
+          setErrorMsg("Word is not valid")
+        }
+       } else {
+          setGuessList([...guessList, currentGuess]);
+          setCurrentGuess("");
+       }
     } else if (!gameWon) {
       setErrorMsg("Not enough letters");
     }
@@ -111,19 +110,25 @@ function App() {
     }
   };
 
+  const changeDifficulty = () => {
+    setDifficultySetting(!difficultySetting)
+  }
+
   function resetHandler(){
     setEndModalOpen(false)
     setGuessList([])
     setCorrectGuesses(["", "", ""])
-    setChosenWord(chooseSolution())
+    setChosenWord(findWeapon())
     setGameWon(false)
     setGameLost(false)
   }
 
   return (
     <div className={"container"}>
+      <Switch difficultySetting={changeDifficulty}/>
       {startScreen && (!gameWon && !gameLost) ? <StartInfo screenState={setStartScreen} /> : null}
       {endModalOpen ? <GameEnd outcome={gameWon ? "won" : "lost"} handleReset={() => resetHandler()} solution={chosenWord} /> : null}
+      <button onClick={() => resetGameStateToLocalStorage()}>Reset local state</button>
       <Header />
       <div className="App">
         <CompleteGrid
