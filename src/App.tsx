@@ -4,46 +4,57 @@ import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
   resetGameStateToLocalStorage,
+  saveStatsToLocalStorage,
+  loadStatsFromLocalStorage,
   StoredGameState,
+  GameStats,
 } from "./lib/localStorage";
+import { loadStats, addStatsForCompletedGame } from "./lib/stats";
 import { MAX_WORD_LENGTH, MAX_CHALLENGES } from "./constants/gameSettings";
 import CompleteGrid from "./components/grid/CompleteGrid/CompleteGrid";
 import Keyboard from "./components/keyboard/Keyboard";
 import Header from "./components/header/Header";
 import StartInfo from "./components/startInfo/StartInfo";
 import "./App.css";
+import GameEnd from "./components/gameEnd/GameEnd";
 
 function App() {
-  const [storageText, setstorageText] = useState("");
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guessList, setGuessList] = useState<string[]>([]);
   const [chosenWord, setChosenWord] = useState<string>("");
   const [correctGuesses, setCorrectGuesses] = useState<string[]>(["", "", ""]);
-  const [localGameState, setLocalGameState] =
-    useState<StoredGameState | null>();
-  const [startScreen, setStartScreen] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [gameWon, setGameWon] = useState(false)
+  const [gameLost, setGameLost] = useState(false)
+  const [endModalOpen, setEndModalOpen] = useState(false)
+  const [stats, setStats] = useState(() => loadStats())
+  const [guessList, setGuessList] = useState<string[]>(() => {
+    const loaded = loadGameStateFromLocalStorage()
+    setChosenWord(loaded?.gameSolution ? loaded?.gameSolution : chooseSolution())
+    return loaded?.currentGuesses || []
+  });
+  const [startScreen, setStartScreen] = useState((guessList.length == 0 ? true: false));
 
-  useEffect(() => {
-    resetGameStateToLocalStorage();
+  function chooseSolution(){
     const tempChosen = Object.values(weaponData.weapons).filter(
       (e) => e.name.length <= MAX_WORD_LENGTH
     );
-    setChosenWord(
-      tempChosen[Math.floor(Math.random() * tempChosen.length)].name
-    );
-    // LOAD after first screen setLocalGameState(loadGameStateFromLocalStorage())
-  }, []);
+    return tempChosen[Math.floor(Math.random() * tempChosen.length)].name
+  }
 
   useEffect(() => {
-    console.log(chosenWord);
-    console.log(`Local Storage: ${localGameState?.obfSolution}`);
-  }, [chosenWord]);
-
-  useEffect(() => {
+    saveGameStateToLocalStorage({currentGuesses: guessList, gameSolution: chosenWord})
     if (guessList.includes(chosenWord?.toUpperCase())) setGameWon(true)
+    else if (guessList.length == MAX_CHALLENGES && !gameWon) setGameLost(true)
   }, [guessList])
+
+  useEffect(() => {
+    if (gameWon || gameLost) {
+      setStats(addStatsForCompletedGame(stats, guessList.length))
+      setEndModalOpen(true)
+      resetGameStateToLocalStorage()
+    }
+  }, [gameWon, gameLost])
+  
   
 
   function checkGuess(guess: string) {
@@ -70,7 +81,6 @@ function App() {
   };
 
   const addToGuess = (letter: string) => {
-    //! Add win condition check
     if (currentGuess.length < chosenWord.length && !gameWon)
       setCurrentGuess(currentGuess + letter);
   };
@@ -101,29 +111,21 @@ function App() {
     }
   };
 
-  function handleInputText(e: any) {
-    e.preventDefault();
-    setstorageText(e.target.value);
-  }
-
-  function buttonHandler() {
-    console.log("clicked");
-    saveGameStateToLocalStorage({ obfSolution: storageText });
-  }
-
-  function loadState() {
-    const loaded = loadGameStateFromLocalStorage();
-    console.log(`Loaded date = ${loaded?.obfSolution}`);
+  function resetHandler(){
+    setEndModalOpen(false)
+    setGuessList([])
+    setCorrectGuesses(["", "", ""])
+    setChosenWord(chooseSolution())
+    setGameWon(false)
+    setGameLost(false)
   }
 
   return (
     <div className={"container"}>
-      {startScreen ? <StartInfo screenState={setStartScreen} /> : null}
+      {startScreen && (!gameWon && !gameLost) ? <StartInfo screenState={setStartScreen} /> : null}
+      {endModalOpen ? <GameEnd outcome={gameWon ? "won" : "lost"} handleReset={() => resetHandler()} solution={chosenWord} /> : null}
       <Header />
       <div className="App">
-        {/* <input value={storageText} onInput={e => handleInputText(e)} placeholder='Type text in here'></input>
-      <button onClick={() => buttonHandler()}> Click me </button>
-      <button onClick={() => loadState()}> Click me </button> */}
         <CompleteGrid
           currentGuess={currentGuess}
           completeGuesses={guessList}

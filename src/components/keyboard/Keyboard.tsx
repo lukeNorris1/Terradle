@@ -18,6 +18,8 @@ export default function Keyboard(props: Props) {
     ["Enter", "Z", "X", "C", "V", "B", "N", "M", "Del"],
   ];
 
+ 
+
   function keyClickHandler(e: string) {
     if (e === "Enter") {
       onEnter();
@@ -44,9 +46,10 @@ export default function Keyboard(props: Props) {
     };
   }, [addGuess, onDelete, onEnter]);
 
-  function colorCheck(key: string){
-    if (correctGuesses[0].includes(key)) return "#4ab336"
-    else if (correctGuesses[1].includes(key)) return "#f2a246"
+  const colorCheck = (key: string) => {
+    console.log(`correct guesses: ${correctGuesses}`)
+    if (correctGuesses[0].includes(key)) return "#4ab336" //green
+    else if (correctGuesses[1].includes(key)) return "#f2a246" //orange
     else if (correctGuesses[2].includes(key)) return "gray"
     return ""
   }
@@ -62,7 +65,7 @@ export default function Keyboard(props: Props) {
                 return !(key == "Enter" || key == "Del") ? (
                   <div
                     onClick={() => keyClickHandler(key)}
-                    className={`${styles.key} ${"2"}`} // if key is in first array index = green, if second array = yellow, if third = grayed out
+                    className={styles.key}
                     style={{backgroundColor: colorCheck(key)}}
                     key={index}
                   >

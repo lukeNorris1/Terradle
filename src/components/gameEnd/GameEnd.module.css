@@ -1,0 +1,54 @@
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.5rem;
+    line-height: 1rem;
+    position: absolute;
+    top: 20%;
+    left: 100;
+    right: 100;
+    border: 2px solid black;
+    border-radius: 40px;
+    height: fit-content;
+    width: 500px;
+    opacity: 95%;
+    padding: 15px;
+}
+
+.paragraph {
+    font-size: 0.5rem;
+    line-height: 1rem;
+    word-wrap: break-word;
+}
+
+.colors {
+    line-height: 0.5rem;
+}
+
+.outcome {
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.solution {
+    color: red;
+}
+
+.toggleButton {
+    height: 50px;
+    width: 30%;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 1rem 0;
+    border-radius: 15px;
+}
+
+.toggleButton:hover {
+    cursor: pointer;
+    color: #ea9615;
+    background-color: #1569EA;
+}

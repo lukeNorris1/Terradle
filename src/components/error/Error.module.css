@@ -1,7 +1,7 @@
 .errMsg {
     background-color: darkred;
     position: fixed;
-    top: 18%;
+    top: 55%;
     left: 40%;
     right: 0;
     width: 20%;
@@ -21,7 +21,7 @@
 .hide {
     background-color: darkred;
     position: fixed;
-    top: 18%;
+    top: 55%;
     left: 40%;
     right: 0;
     width: 20%;

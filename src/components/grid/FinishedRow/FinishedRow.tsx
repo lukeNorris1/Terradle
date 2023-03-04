@@ -15,7 +15,6 @@ export default function FinishedRow(props: prop) {
 
 
     function guessLetterExactChosen(guess: string, index: number){
-      console.log(index)
       if (guess == (chosenChanged[index].toUpperCase())) {
         if (addtoCorrectGuess){
           setTimeout(() => addtoCorrectGuess(guess, 0))

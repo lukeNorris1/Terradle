@@ -1,17 +1,16 @@
-import { Buffer } from 'buffer'
 const gameStateKey = 'gameState'
 
 export type StoredGameState = {
-  obfSolution: string
+  currentGuesses: string[],
+  gameSolution: string
 }
 
 export const saveGameStateToLocalStorage = (gameState: StoredGameState) => {
   localStorage.setItem(
     gameStateKey,
     JSON.stringify({
-      obfSolution: Buffer.from(gameState.obfSolution, 'utf-8').toString(
-        'base64'
-      ),
+      currentGuesses: gameState.currentGuesses,
+      gameSolution: gameState.gameSolution
     })
   )
 }
@@ -23,9 +22,8 @@ export const loadGameStateFromLocalStorage = () => {
   if (state) {
       let nextState: StoredGameState = JSON.parse(state)
     nextState = {
-      obfSolution: Buffer.from(nextState.obfSolution, 'base64').toString(
-        'utf-8'
-      ),
+      currentGuesses: nextState.currentGuesses,
+      gameSolution: nextState.gameSolution
     }
     return nextState
   }
@@ -36,7 +34,28 @@ export const resetGameStateToLocalStorage = () => {
   localStorage.setItem(
     gameStateKey,
     JSON.stringify({
-      obfSolution: undefined
+      currentGuesses: undefined,
+      gameSolution: undefined
     })
   )
+}
+
+const gameStatKey = 'gameStats'
+
+export type GameStats = {
+  winDistribution: number[]
+  gamesFailed: number
+  currentStreak: number
+  bestStreak: number
+  totalGames: number
+  successRate: number
+}
+
+export const saveStatsToLocalStorage = (gameStats: GameStats) => {
+  localStorage.setItem(gameStatKey, JSON.stringify(gameStats))
+}
+
+export const loadStatsFromLocalStorage = () => {
+  const stats = localStorage.getItem(gameStatKey)
+  return stats ? (JSON.parse(stats) as GameStats) : null
 }

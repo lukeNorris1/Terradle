@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: 1%;
 }
 
 .cell {
@@ -13,7 +13,7 @@
     height: 56px;
     width: 56px;
     background-color: #3d9ecf;
-    border: solid lightgray 3px;
+    border: solid transparent 3px;
     color: white;
     margin: 0px 5px;
 }
