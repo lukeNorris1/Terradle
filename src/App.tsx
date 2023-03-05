@@ -7,19 +7,13 @@ import {
   resetGameStateToLocalStorage,
 } from "./lib/localStorage";
 import { loadStats, addStatsForCompletedGame } from "./lib/stats";
-import { MAX_CHALLENGES } from "./constants/gameSettings";
-import CompleteGrid from "./components/grid/CompleteGrid/CompleteGrid";
-import Keyboard from "./components/keyboard/Keyboard";
-import Header from "./components/header/Header";
-import StartInfo from "./components/startInfo/StartInfo";
-import GameEnd from "./components/gameEnd/GameEnd";
 import { findWeapon } from './lib/findWeapon'
-import Switch from "./components/switch/Switch";
+import { MAX_CHALLENGES } from "./constants/gameSettings";
+import { CompleteGrid, Keyboard, Header, StartInfo, GameEnd, Switch } from "./components";
 
 function App() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [chosenWord, setChosenWord] = useState<string>("");
-  const [correctGuesses, setCorrectGuesses] = useState<string[]>(["", "", ""]);
   const [errorMsg, setErrorMsg] = useState("");
   const [difficultySetting, setDifficultySetting] = useState(false)
   const [gameWon, setGameWon] = useState(false)
@@ -35,10 +29,14 @@ function App() {
 
 //! ALL GOOD !
   useEffect(() => {
+    console.log(`guessList updated: ${guessList[guessList.length - 1]}`)
     saveGameStateToLocalStorage({currentGuesses: guessList, gameSolution: chosenWord})
     if (guessList.includes(chosenWord?.toUpperCase())) setGameWon(true)
     else if (guessList.length == MAX_CHALLENGES && !gameWon) setGameLost(true)
+    //console.log(`App guessList: ${guessList}`)
+    //! ADDED THIS - NOT SURe IF IT WORKS
   }, [guessList])
+
 
   useEffect(() => {
     if (gameWon || gameLost) {
@@ -48,13 +46,8 @@ function App() {
     }
   }, [gameWon, gameLost])
   
-  
-
   function checkGuess(guess: string) {
-    if (
-      weaponData.weapons.filter((e) => e.name.toUpperCase() == guess).length == 1
-    )
-      return true;
+    if (weaponData.weapons.filter((e) => e.name.toUpperCase() == guess).length == 1) return true;
     return false;
   }
 
@@ -80,34 +73,13 @@ function App() {
   };
 
   const addToGuess = (letter: string) => {
+    console.log(`keyboard added letter: ${letter}`)
     if (currentGuess.length < chosenWord.length && !gameWon)
       setCurrentGuess(currentGuess + letter);
   };
 
   const removeFromGuess = () => {
     setCurrentGuess(currentGuess.slice(0, -1));
-  };
-
-  const addtoCorrectGuess = (letter: string, index: number) => {
-    if (index == 0) {
-      if (!correctGuesses[0].includes(letter)) {
-        let tempArray = correctGuesses;
-        tempArray[0] += letter;
-        setCorrectGuesses(tempArray);
-      }
-    } else if (index == 1) {
-      if (!correctGuesses[1].includes(letter)) {
-        let tempArray = correctGuesses;
-        tempArray[1] += letter;
-        setCorrectGuesses(tempArray);
-      }
-    } else if (index == 2) {
-      if (!correctGuesses[2].includes(letter)) {
-        let tempArray = correctGuesses;
-        tempArray[2] += letter;
-        setCorrectGuesses(tempArray);
-      }
-    }
   };
 
   const changeDifficulty = () => {
@@ -117,7 +89,6 @@ function App() {
   function resetHandler(){
     setEndModalOpen(false)
     setGuessList([])
-    setCorrectGuesses(["", "", ""])
     setChosenWord(findWeapon())
     setGameWon(false)
     setGameLost(false)
@@ -135,13 +106,13 @@ function App() {
           currentGuess={currentGuess}
           completeGuesses={guessList}
           chosenWord={chosenWord}
-          addtoCorrectGuess={addtoCorrectGuess}
         />
         <Keyboard
           addGuess={addToGuess}
           onDelete={removeFromGuess}
           onEnter={addGuessList}
-          correctGuesses={correctGuesses}
+          solution={chosenWord}
+          guessList={guessList}
           errorMsg={errorMsg}
         />
       </div>

@@ -1,37 +1,24 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import styles from './FinishedRow.module.css'
 
 type prop = {
     word: string
     chosenWord: string;
-    addtoCorrectGuess?: (value: string, index: number) => void;
+    addToCorrectGuess?: (value: string, index: number) => void;
 }
 
-export default function FinishedRow(props: prop) {
-    const { word, chosenWord, addtoCorrectGuess } = props
+export default memo(function FinishedRow(props: prop) {
+    const { word, chosenWord } = props
     let chosenChanged = ""
 
     
-
+  console.log(`re-render finishedRow`)
 
     function guessLetterExactChosen(guess: string, index: number){
-      if (guess == (chosenChanged[index].toUpperCase())) {
-        if (addtoCorrectGuess){
-          setTimeout(() => addtoCorrectGuess(guess, 0))
-        }
-        return styles.green
-      }
-      else if (chosenChanged.toUpperCase().includes(guess)) {
-        if (addtoCorrectGuess){
-          setTimeout(() => addtoCorrectGuess(guess, 1))
-        }
-        return styles.yellow
-      } else {
-        if (addtoCorrectGuess){
-          setTimeout(() => addtoCorrectGuess(guess, 2))
-        }
-        return styles.gray
-      }
+      if (guess == (chosenChanged[index].toUpperCase())) return styles.green
+      else if (chosenChanged.toUpperCase().includes(guess)) return styles.yellow
+      else return styles.gray
+      
     }
 
     const finishedWords = () => 
@@ -48,4 +35,4 @@ export default function FinishedRow(props: prop) {
         {finishedWords()}
     </div>
   )
-}
+});

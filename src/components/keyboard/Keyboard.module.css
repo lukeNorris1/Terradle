@@ -65,3 +65,15 @@
       background-color: transparent;
     }
   }
+
+.green{
+    background-color: #5ebf4b;
+}
+
+.yellow {
+    background-color: #f2a246;
+}
+
+.gray {
+    background-color: rgba(0,0,0,0.2);
+}
