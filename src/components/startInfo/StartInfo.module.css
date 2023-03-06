@@ -15,6 +15,7 @@
     width: 500px;
     opacity: 95%;
     padding: 15px;
+    z-index: 1;
 }
 
 .heading {
