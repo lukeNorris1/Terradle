@@ -27,17 +27,14 @@ function App() {
   });
   const [startScreen, setStartScreen] = useState((guessList.length == 0 ? true: false));
 
-//! ALL GOOD !
+  // When a new word is submitted as guess check a win or loss condition 
   useEffect(() => {
-    console.log(`guessList updated: ${guessList[guessList.length - 1]}`)
     saveGameStateToLocalStorage({currentGuesses: guessList, gameSolution: chosenWord})
     if (guessList.includes(chosenWord?.toUpperCase())) setGameWon(true)
     else if (guessList.length == MAX_CHALLENGES && !gameWon) setGameLost(true)
-    //console.log(`App guessList: ${guessList}`)
-    //! ADDED THIS - NOT SURe IF IT WORKS
   }, [guessList])
 
-
+  // Then when the end condition is met, show the end screen and reset the board for the next word
   useEffect(() => {
     if (gameWon || gameLost) {
       setStats(addStatsForCompletedGame(stats, guessList.length))
@@ -51,6 +48,9 @@ function App() {
     return false;
   }
 
+  /*
+    toggle difficulty setting and send appropriate errors when inputting new guesses
+  */
   const addGuessList = () => {
     if (
       guessList.length < MAX_CHALLENGES &&
@@ -73,7 +73,6 @@ function App() {
   };
 
   const addToGuess = (letter: string) => {
-    console.log(`keyboard added letter: ${letter}`)
     if (currentGuess.length < chosenWord.length && !gameWon)
       setCurrentGuess(currentGuess + letter);
   };
@@ -99,7 +98,6 @@ function App() {
       <Switch difficultySetting={changeDifficulty}/>
       {startScreen && (!gameWon && !gameLost) ? <StartInfo screenState={setStartScreen} /> : null}
       {endModalOpen ? <GameEnd outcome={gameWon ? "won" : "lost"} handleReset={() => resetHandler()} solution={chosenWord} /> : null}
-      <button onClick={() => resetGameStateToLocalStorage()}>Reset local state</button>
       <Header />
       <div className="App">
         <CompleteGrid

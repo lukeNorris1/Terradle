@@ -9,20 +9,15 @@ type prop = {
 
 export default memo(function FinishedRow(props: prop) {
     const { word, chosenWord } = props
-    let chosenChanged = ""
 
-    
-  console.log(`re-render finishedRow`)
-
-    function guessLetterExactChosen(guess: string, index: number){
-      if (guess == (chosenChanged[index].toUpperCase())) return styles.green
-      else if (chosenChanged.toUpperCase().includes(guess)) return styles.yellow
+    //Apply styling my checking if the guessed letter is in the solution
+    function guessLetterExactChosen(letter: string, index: number){
+      if (letter == (chosenWord[index].toUpperCase())) return styles.green
+      else if (chosenWord.toUpperCase().includes(letter)) return styles.yellow
       else return styles.gray
-      
     }
 
-    const finishedWords = () => 
-    { chosenChanged = chosenWord
+    const finishedWords = () => {
       return (
       [...word].map((letter, i) => 
         <div className={`${styles.cell} ${guessLetterExactChosen(letter, i)}`} key={i}>{letter}</div>

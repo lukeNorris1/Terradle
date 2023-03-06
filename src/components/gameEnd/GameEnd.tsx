@@ -9,12 +9,12 @@ type props = {
   solution: string,
 }
 
-
 export default function GameEnd(props: props) {
   const { handleReset, outcome, solution } = props
     const [stats, setStats] = useState(() => loadStats())
     let totalCount = 0
 
+    //Calculate the mean score over all games. Between 1 and 6
     function getMeanPosition(){
       stats.winDistribution.forEach((position, index) => {
         totalCount += position * (index + 1)
