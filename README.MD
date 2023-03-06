@@ -18,7 +18,7 @@ It was made using React and Typescript
     
 ## Demo
 
-[Try out the demo!](https://github.com/lukeNorris1)
+[Try out the demo!](https://lukenorris1.github.io/Terradle/)
 
 ![](https://raw.githubusercontent.com/lukeNorris1/Terradle/main/src/assets/demo.png)
 
