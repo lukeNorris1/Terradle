@@ -13,6 +13,7 @@
     border-radius: 40px;
     height: fit-content;
     width: 500px;
+    z-index: 1;
     opacity: 95%;
     padding: 15px;
 }
