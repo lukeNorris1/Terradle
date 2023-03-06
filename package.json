@@ -9,6 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "tsc && vite build",
+    "preview": "vite preview --port 8080"
   },
   "dependencies": {
     "buffer": "^6.0.3",
