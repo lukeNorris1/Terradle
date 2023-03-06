@@ -10,7 +10,7 @@ export default function StartInfo(props: any) {
   };
   return (
     <div className={styles.info}>
-      <h1>How to Play</h1>
+      <h1 className={styles.heading}>How to Play</h1>
       <p className={styles.paragraph}>
         Terradle is an adaptation of Wordle using weapons from the game
         Terraria. The objective of the game is to try and guess a random
