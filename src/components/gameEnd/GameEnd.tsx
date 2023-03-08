@@ -1,7 +1,6 @@
 import styles from './GameEnd.module.css'
 import { loadStats } from "../../lib/stats";
 import { useState } from 'react';
-import { GameStats } from "../../lib/localStorage";
 
 type props = {
   handleReset: Function,
@@ -19,15 +18,16 @@ export default function GameEnd(props: props) {
       stats.winDistribution.forEach((position, index) => {
         totalCount += position * (index + 1)
       })
+      if (totalCount == 0) return "n/a"
       return (totalCount / stats.totalGames).toFixed(2)
     }
 
   return (
     <div className={styles.info}>
       <h1>Game {outcome}!</h1>
-      <p className={styles.outcome}>Anwer was <b className={styles.solution}>{solution}</b></p>
+      <p className={styles.outcome}>Answer was <b className={styles.solution}>{solution}</b></p>
       <p className={styles.colors}>
-        Average place {getMeanPosition()}
+        Average place on Win {getMeanPosition()}
       </p>
       <p className={styles.colors}>
         {`Total Games: ${stats.totalGames}`}
