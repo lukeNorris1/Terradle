@@ -38,7 +38,7 @@ export default memo(function Keyboard(props: Props) {
         onEnter();
       } else if (e.code === "Backspace" || e.code === "Delete") {
         onDelete();
-      } else if (keys.join().toLocaleLowerCase().includes(e.key)) {
+      }  else if (keys.join().toLocaleLowerCase().includes(e.key) && e.code !="Comma") {
         addGuess(e.key.toUpperCase());
       }
     };
